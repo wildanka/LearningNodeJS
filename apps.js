@@ -1,26 +1,32 @@
-const http = require('http');
+const express = require('express')
+const fs = require('fs')
 
-const hostname = '127.0.0.1';
 const port = 3000;
+const app = express()
 
-const server = http.createServer((req, res) => {
-  console.log(req.url);
+/* basically when we access some url, we automatically send a get request. 
+so here we're going to try to route the get request*/
+app.get('/' , (req,res) => {
+  res.json({
+    name: 'Wildan Kurniadi'
+  })
+})
+app.get('/aboutjson' , (req,res) => {
+  res.json({
+    name: 'Wildan Kurniadi',
+    age: '24'
+  })
+})
+app.get('/aboutsend', (req,res) =>{
+  res.send({
+    name: 'Wildan Kurniadi',
+    age: '24'
+  })
+})
 
-  if(req.url === '/about'){
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('I\'m an About Page\n');
-  }else if(req.url === '/contact'){
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('I\'m an Contact Page\n');
-  }else{
-    res.statusCode = 400;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('Sorry Page Not Found, try access our homesite. \n');
-  }
-});
-
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+/*the result will be Cannot GET / 
+this is because we not yet routing the response
+*/
+app.listen(port, () => {
+  console.log('App listening on '.port)
+})

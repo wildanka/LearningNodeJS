@@ -1,0 +1,23 @@
+{
+  "name": "learningnodejs",
+  "version": "1.0.0",
+  "description": "Learning NodeJS from Scratch",
+  "main": "apps.js",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wildanka/LearningNodeJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wildanka/LearningNodeJS/issues"
+  },
+  "homepage": "https://github.com/wildanka/LearningNodeJS#readme"
+}
