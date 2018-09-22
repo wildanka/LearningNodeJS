@@ -1,27 +1,26 @@
+const path = require('path')
+
 const express = require('express')
-const fs = require('fs')
 
 const port = 3000;
 const app = express()
 
-/* basically when we access some url, we automatically send a get request. 
-so here we're going to try to route the get request*/
+
 app.get('/' , (req,res) => {
-  res.json({
-    name: 'Wildan Kurniadi'
-  })
+  console.log(__dirname)
+  console.log(path.resolve(__dirname,'index.html'))
+  console.log(path.resolve(__dirname,'view','contacts.html'))
+  console.log(__filename)
+  
+  res.sendFile(path.resolve(__dirname,'index.html'))
 })
+
+
 app.get('/aboutjson' , (req,res) => {
-  res.json({
-    name: 'Wildan Kurniadi',
-    age: '24'
-  })
+  res.sendFile(path.resolve(__dirname,'about.html'))
 })
-app.get('/aboutsend', (req,res) =>{
-  res.send({
-    name: 'Wildan Kurniadi',
-    age: '24'
-  })
+app.get('/contacts', (req,res) =>{
+  res.sendFile(path.resolve(__dirname,'contacts.html'))
 })
 
 /*the result will be Cannot GET / 
