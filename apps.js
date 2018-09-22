@@ -5,17 +5,14 @@ const express = require('express')
 const port = 3000;
 const app = express()
 
+//import the static assets
+app.use(express.static('public'))
 
+//routing our server
 app.get('/' , (req,res) => {
-  console.log(__dirname)
-  console.log(path.resolve(__dirname,'index.html'))
-  console.log(path.resolve(__dirname,'view','contacts.html'))
-  console.log(__filename)
-  
+  res.header = 200;
   res.sendFile(path.resolve(__dirname,'index.html'))
 })
-
-
 app.get('/aboutjson' , (req,res) => {
   res.sendFile(path.resolve(__dirname,'about.html'))
 })
