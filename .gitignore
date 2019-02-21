@@ -22,3 +22,4 @@ yarn-error.log*
 
 /warming_up/node_modules
 /rest_api/node_modules
+/test_code/node_modules
