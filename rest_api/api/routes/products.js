@@ -10,8 +10,14 @@ router.get('/', (req, res, next) => {
 
 //create a POST request, the first parameter is the route (sub-route/sub-Url), while the second is a handler function
 router.post('/', (req, res, next) => {
-  res.status(200).json({
-    message: 'Handling request with POST method to /products'
+  const product = {
+    name: req.body.name,
+    price: req.body.price
+  };
+  res.status(201).json({
+    message:
+      'Create a new Product (Handling request with POST method to /products)',
+    createdProduct: product
   });
 });
 

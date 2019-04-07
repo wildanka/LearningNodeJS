@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan'); //morgan will logs your middleware
+const bodyParser = require('body-parser'); //body parser doesn't support files, but it does support url encoded, bodies, and also JSON data
 
 //import product.js route
 const productRoutes = require('./api/routes/products');
@@ -8,6 +9,9 @@ const orderRoutes = require('./api/routes/orders');
 
 //before we use any of those function, we call the morgan first
 app.use(morgan('dev'));
+//this will extract json and urlencoded data  and make it easily readable to us
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 /**
  * any incoming request has to go through app.use method
